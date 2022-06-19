@@ -1,0 +1,24 @@
+replace the character value with pi=3.14;
+package sagar.company;
+
+public class Main {
+    public static String replacepi(String s) {
+        if (s.length() <= 1) {
+            return s;
+        }
+        if (s.charAt(0) == 'p' && s.charAt(1) == 'i') {
+            String smalloutput = replacepi(s.substring(2));
+            return "314" + smalloutput;
+        } else {
+            String smalloutput = replacepi(s.substring(1));
+
+            return s.charAt(0) + smalloutput;
+        }
+    }
+
+    public static void main(String[] args) {
+        // write your code here
+        System.out.println(replacepi("apipipi"));
+
+    }
+}
