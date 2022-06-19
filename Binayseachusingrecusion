@@ -1,0 +1,27 @@
+Binary Search Using recusion method 
+______________________________________________________________________________________________
+
+package sagar.company;
+
+public class binarysearchusingrecursion {
+    public static int binarySearch(int array[],int start,int end,int x){
+        if(start>end){
+            return -1;
+        }
+        int mid=(start+end)/2;
+        if(array[mid]==x){
+            return mid;
+        }else if(array[mid]<x){
+            return binarySearch(array,mid+1,end,x);
+        }else{
+            return binarySearch(array,start,end-1,x);
+        }
+
+    }
+    public static void main(String []args){
+        int array[]={1,2,3,4,5,7,8,9,10};
+        System.out.println(binarySearch(array,0,array.length-1,7));
+
+
+    }
+}
