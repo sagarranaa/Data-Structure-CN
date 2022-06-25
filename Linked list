@@ -1,0 +1,18 @@
+ArrayList-topic
+________________________________________
+package sagar.company;
+
+import java.util.ArrayList;
+
+public class arrayslistss {
+    public static void main(String[] args) {
+        ArrayList<Integer>arr=new ArrayList<>();
+        arr.add(10);
+        arr.add(20);
+        arr.add(30);
+        arr.add(0,80);
+        System.out.println(arr);
+        System.out.println("at index 2 thr value is "+arr.get(2));
+        System.out.println("adding element at index 1 "+arr);
+    }
+}
