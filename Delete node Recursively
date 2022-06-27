@@ -1,0 +1,37 @@
+/*
+
+    Following is the Node class already written for the Linked List
+
+    class LinkedListNode<T> {
+        T data;
+        LinkedListNode<T> next;
+    
+        public LinkedListNode(T data) {
+            this.data = data;
+        }
+    }
+
+*/
+
+public class Solution {
+
+
+	public static LinkedListNode<Integer> deleteNodeRec(LinkedListNode<Integer> head, int position) {
+    	//Your code goes here
+        	if(head==null&& position>0)
+		{
+			return head;
+		}
+		if(position==0)
+		{ 
+			if(head==null) //incase of a LL of length 5 if position =5 then this if will handle the null pointer exception
+				return head;
+			else
+				return head.next;
+		}
+		LinkedListNode<Integer>next=deleteNodeRec(head.next, position-1);
+		head.next=next;
+		return head;
+	}
+
+}
