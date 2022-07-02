@@ -15,72 +15,46 @@ Sample Input 2 :
 Sample Output 1 :
 1 0 0 0 
 ____________________________________________________________
-/*************** 
- * Following is the Node class already written 
+/******** 
+Following is the structure of Linked list node
 class LinkedListNode<T> {
-	T data;
-	LinkedListNode<T> next;
+	public T data;
+	public LinkedListNode<T> next;
 
 	public LinkedListNode(T data) {
 		this.data = data;
+		this.next = null;
 	}
 }
- ***************/
+*********/
 
-public class Solution {
+public class solution {
 
-
-	public static LinkedListNode<Integer> nextLargeNumber(LinkedListNode<Integer> head) {
-        LinkedListNode<Integer>temp;
-        LinkedListNode<Integer>prev=null;
-        LinkedListNode<Integer>curr=head;
-        while(curr!=null){
-            temp=curr.next;
-            curr.next=prev;
-            prev=curr;
-            curr=temp;
+	public static void changeLL(LinkedListNode<Integer> head) {
+		// Write your code here
+        int max=0;
+        LinkedListNode<Integer>temp=head;
+        while(temp!=null){
+            if(temp.data>max){
+                max=temp.data;
+            }
+            temp=temp.next;
         }
-        LinkedListNode<Integer>tem=prev;
-        int extra=0;
-        LinkedListNode<Integer>a=new LinkedListNode<Integer>(1);
-        while(tem!=null){
-            if(tem.data==9){
-                tem.data=0;
-                extra=1;
-                if(tem.next==null){
-                    return tem.next=a;
-                }
+        boolean done[]=new boolean[max + 1];
+        for(int i=0;i<=max;i++){
+            done[i]=false;
+        }
+        temp=head;
+        while(temp!=null){
+            if(done[temp.data]){
+                temp.data=max+1;
+                max++;
             }else{
-                if(extra==1){
-                    int d=tem.data+1;
-                    if(d==10){
-                        tem.data=0;
-                        extra=1;
-                    }else{
-                        extra=0;
-                    }
-                }else{
-                        tem.data=tem.data+1;
-                        break;
-                    }
-                }
-                tem=tem.next;
+                done[temp.data]=true;
             }
-            LinkedListNode<Integer>temp1;
-            LinkedListNode<Integer>prev1=null;
-            LinkedListNode<Integer>curr1=prev;
-            while(curr1!=null){
-                temp1=curr1.next;
-                curr1.next=prev1;
-                prev1=curr1;
-                curr1=temp1;
-            }
-            return prev1;
+            temp=temp.next;
         }
         
-        
-   
-	
 
-
+	}
 }
